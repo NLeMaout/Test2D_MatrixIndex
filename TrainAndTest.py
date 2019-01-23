@@ -87,7 +87,7 @@ if __name__ == '__main__':
 	sess.run(tf.global_variables_initializer())
 		
 	error = tf.squared_difference(z1,tf_targets)*1000**2
-	train = tf.train.GradientDescentOptimizer(1e-10).minimize(error)#1e-4).minimize(error)
+	train = tf.train.GradientDescentOptimizer(1e-11).minimize(error)#1e-4).minimize(error)
 		
 	# Reload previous check point
 	if Restart:
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 		print('-> Loading of previous values of variables done !')
 		
 	# training of the model
-	epochs = 1000000
+	epochs = 1000
 	batch_size=100
 	alter=1
 	pred,err=sess.run([z1,error], feed_dict={
